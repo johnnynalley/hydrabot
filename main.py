@@ -13,7 +13,7 @@ logger.addHandler(handler)
 
 
 # Assigns the Discord client to a variable called client
-bot = discord.Client()
+client = discord.Client()
 
 
 # Loads .env
@@ -21,12 +21,12 @@ load_dotenv()
 
 
 # Prints a message stating that the bot is loggen in
-@bot.event
+@client.event
 async def on_ready():
-    print('Logged in as {0.user}'.format(bot))
+    print('Logged in as {0.user}'.format(client))
 
 # Prints the help message when a user says $help
-@bot.event
+@client.event
 async def on_message(message):
     if message.content.startswith('$help'):
         await message.channel.send('''**Hydra Help**
@@ -36,4 +36,4 @@ __help__: Prints this message.''')
 
 
 # Starts the bot
-bot.run(os.getenv('TOKEN'))
+client.run(os.getenv('TOKEN'))
