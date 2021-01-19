@@ -1,4 +1,4 @@
-import discord
+from discord.ext import commands
 import os
 from dotenv import load_dotenv
 import logging
@@ -13,7 +13,7 @@ logger.addHandler(handler)
 
 
 # Assigns the Discord client to a variable called client
-client = discord.Client()
+client = commands.Bot(command_prefix='$')
 
 
 # Loads .env
