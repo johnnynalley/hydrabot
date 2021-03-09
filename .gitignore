@@ -1,4 +1,2 @@
-discord.log
-.env
 .venv
-.vscode
+client_token.py
