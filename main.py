@@ -19,5 +19,6 @@ async def on_message(message):
         await message.channel.send('Hello!')
 
 
-# Before trying to run the bot, make sure your create a file called client_token.py in the same directory as this file, and create a variable called "token" which contains the bot token.
+# Before trying to run the bot, make sure your create a file called client_token.py in the same directory as this
+# file, and create a variable called "token" which contains the bot token.
 client.run(token)
