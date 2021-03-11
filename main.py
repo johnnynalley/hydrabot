@@ -1,5 +1,3 @@
-import os
-
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -21,6 +19,4 @@ async def on_ready():
     print('----------')
 
 
-# Before trying to run the bot, make sure your create a file called .env in the same directory as this
-# file, and assign your token to TOKEN in .env (Ex. TOKEN='token here')
-bot.run(os.getenv('TOKEN'))
+bot.run("ODAxMTIzNDU4NTkwNzAzNjY3.YAcGXA.35wVGttaRH-QPGC13L0Uh_nnxCE")
