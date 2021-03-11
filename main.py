@@ -1,7 +1,5 @@
 from discord.ext import commands
-from dotenv import load_dotenv
 
-load_dotenv()
 
 command_prefix = '$'
 description = f'''Hydra Commands
