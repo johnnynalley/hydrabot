@@ -1,4 +1,4 @@
 .idea
 .venv
-client_token.py
+.env
 __pycache__
