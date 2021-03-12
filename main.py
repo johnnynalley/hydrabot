@@ -1,5 +1,9 @@
-from discord.ext import commands
+import os
 
+from discord.ext import commands
+from dotenv import load_dotenv
+
+load_dotenv()
 
 command_prefix = '$'
 description = f'''Hydra Commands
@@ -17,4 +21,4 @@ async def on_ready():
     print('----------')
 
 
-bot.run("ODAxMTIzNDU4NTkwNzAzNjY3.YAcGXA.35wVGttaRH-QPGC13L0Uh_nnxCE")
+bot.run(os.getenv('TOKEN'))
