@@ -4,17 +4,14 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
-from settings import
-from welcome_message import welcomeMessage, welcomeChannel
+from settings import (
+    welcomeChannel,
+    intents,
+    command_prefix,
+    description
+)
+from welcome_message import welcomeMessage
 
-load_dotenv()
-
-command_prefix = '$'
-description = f'''Hydra Commands
-Hydra's command prefix is "{command_prefix}"
-'''
-
-intents = discord.Intents(members=True)
 bot = commands.Bot(command_prefix=command_prefix, description=description, intents=intents)
 
 
@@ -46,4 +43,5 @@ async def kick(ctx, member: discord.Member, *, reason=None):
         await ctx.send(f'{member} was kicked.')
 
 
+load_dotenv()
 bot.run(os.getenv('TOKEN'))
