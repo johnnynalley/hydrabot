@@ -10,7 +10,6 @@ description = f'''Hydra Commands
 Hydra's command prefix is "{command_prefix}"
 '''
 
-# bot = commands.Bot(command_prefix=command_prefix, description=description)
 bot = commands.Bot(command_prefix=command_prefix, description=description)
 
 
