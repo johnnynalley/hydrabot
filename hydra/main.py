@@ -4,7 +4,8 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
-from variables import welcomeMessage
+from settings import
+from welcome_message import welcomeMessage, welcomeChannel
 
 load_dotenv()
 
@@ -29,11 +30,20 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     print(f"{member.name} has joined the server. Attempting to send welcome message...")
-    try:
-        await bot.send_message(member, welcomeMessage)
-        print(f'Sent welcome message to {member.name}')
-    except:
-        print(f"Couldn't send welcome message {member.name}.")
+    await bot.get_channel(welcomeChannel).send(f"{welcomeMessage}")
+    print(f'Sent welcome message to {member.name}')
+
+
+# Kick command
+@bot.command
+@commands.has_permissions(kick_members=True)
+async def kick(ctx, member: discord.Member, *, reason=None):
+    if member == ctx.message.author:
+        await ctx.send('Unable to kick yourself.')
+        return
+    else:
+        await member.kick(reason=reason)
+        await ctx.send(f'{member} was kicked.')
 
 
 bot.run(os.getenv('TOKEN'))
