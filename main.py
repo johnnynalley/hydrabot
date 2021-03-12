@@ -13,6 +13,7 @@ Hydra's command prefix is "{command_prefix}"
 bot = commands.Bot(command_prefix=command_prefix, description=description)
 
 
+# Prints message in terminal when the bot is started
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
