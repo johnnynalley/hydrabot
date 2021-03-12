@@ -10,7 +10,6 @@ from settings import (
     command_prefix,
     description
 )
-from welcome_message import welcomeMessage
 
 bot = commands.Bot(command_prefix=command_prefix, description=description, intents=intents)
 
@@ -27,8 +26,8 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     print(f"{member.name} has joined the server. Attempting to send welcome message...")
-    await bot.get_channel(welcomeChannel).send(f"{welcomeMessage}")
-    print(f'Sent welcome message to {member.name}')
+    await bot.get_channel(welcomeChannel).send(f'Welcome to Code with Us, {member.name}!')
+    print(f'Sent welcome message to {member.name}.')
 
 
 # Kick command
