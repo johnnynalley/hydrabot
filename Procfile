@@ -1,1 +1,1 @@
-worker: python hydra/hydra.py
+worker: python hydra/main.py
