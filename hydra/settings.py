@@ -1,8 +1,5 @@
 import discord
 
-# Welcomer settings
-welcomeChannel = "819624923445985310"
-
 # Bot intents settings
 intents = discord.Intents(members=True)
 
@@ -13,3 +10,6 @@ command_prefix = '$'
 description = f'''Hydra Commands
 Hydra's command prefix is "{command_prefix}"
 '''
+
+# Welcome message
+welcomeMessage = 'Welcome to Code with Us!'
