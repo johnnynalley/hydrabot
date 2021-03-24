@@ -24,6 +24,7 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
+    print()
     print(member.name + ' has joined the server. Sending welcome message now...')
     await member.send(welcomeMessage)
     print("Sent welcome message to " + member.name + '.')
@@ -32,6 +33,7 @@ async def on_member_join(member):
 @bot.command
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason=None):
+    print()
     await member.kick(reason=reason)
     print('User ' + ctx.author + ' used the kick command on ' + member.name + '.')
     print('Kicking ' + member.name + ' from the server...')
