@@ -33,7 +33,10 @@ async def on_member_join(member):
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason=None):
     await member.kick(reason=reason)
-    await ctx.channel.send(f"{member} has been kicked from this server by {ctx.author}")
+    print('User ' + ctx.author + ' used the kick command on ' + member.name + '.')
+    print('Kicking ' + member.name + ' from the server...')
+    await ctx.channel.send(f"{member.name} has been kicked from this server by {ctx.author}")
+    print(member.name + ' has been kicked from the server.')
 
 
 load_dotenv()
