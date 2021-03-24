@@ -1,7 +1,8 @@
 import discord
 
 # Bot intents settings
-intents = discord.Intents(members=True)
+intents = discord.Intents.default()
+intents.members = True
 
 # Command prefix
 command_prefix = '$'
