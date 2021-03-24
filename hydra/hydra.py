@@ -1,5 +1,6 @@
 import os
 
+import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -26,6 +27,13 @@ async def on_member_join(member):
     print(member.name + ' has joined the server. Sending welcome message now...')
     await member.send(welcomeMessage)
     print("Sent welcome message to " + member.name + '.')
+
+
+@bot.command
+@commands.has_permissions(kick_members=True)
+async def kick(ctx, member: discord.Member, *, reason=None):
+    await member.kick(reason=reason)
+    await ctx.channel.send(f"{member} has been kicked from this server by {ctx.author}")
 
 
 load_dotenv()
