@@ -17,28 +17,28 @@ bot = commands.Bot(command_prefix=command_prefix, description=description, inten
 # Prints message in terminal when the bot is started
 @bot.event
 async def on_ready():
-    print('Logged in as ' + bot.user.name)
-    print(bot.user.name + '\'s user ID is ' + str(bot.user.id) + '.')
+    print(f'{bot.user.name} has started.')
+    print(f"{bot.user.name}'s user ID is {bot.user.id}.")
     print('----------')
 
 
 @bot.event
 async def on_member_join(member):
     print()
-    print(member.name + ' has joined the server. Sending welcome message now...')
+    print(f'{member.name} has joined the server. Sending welcome message now...')
     await member.send(welcomeMessage)
-    print("Sent welcome message to " + member.name + '.')
+    print(f"Sent welcome message to {member.name}.")
 
 
-@bot.command
+@bot.command()
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason=None):
     print()
     await member.kick(reason=reason)
-    print('User ' + ctx.author + ' used the kick command on ' + member.name + '.')
-    print('Kicking ' + member.name + ' from the server...')
-    await ctx.channel.send(f"{member.name} has been kicked from this server by {ctx.author}")
-    print(member.name + ' has been kicked from the server.')
+    print(f'User {ctx.author} used the kick command on {member.name}.')
+    print(f'Kicking {member.name} from the server...')
+    await ctx.channel.send(f"**{member.name}** has been kicked from this server by **{ctx.author}**")
+    print(f'{member.name} has been kicked from the server.')
 
 
 load_dotenv()
