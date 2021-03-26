@@ -37,7 +37,7 @@ async def kick(ctx, member: discord.Member, *, reason=None):
     await member.kick(reason=reason)
     print(f'User {ctx.author} used the kick command on {member.name}.')
     print(f'Kicking {member.name} from the server...')
-    await ctx.channel.send(f"**{member.name}** has been kicked from this server by **{ctx.author}**")
+    await ctx.channel.send(f"**{member.name}** has been kicked from the server by **{ctx.author}**.")
     print(f'{member.name} has been kicked from the server.')
 
 
