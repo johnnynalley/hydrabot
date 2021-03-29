@@ -22,6 +22,7 @@ async def on_ready():
     print('----------')
 
 
+# Sends new members a message when they join the server
 @bot.event
 async def on_member_join(member):
     print()
@@ -30,6 +31,7 @@ async def on_member_join(member):
     print(f"Sent welcome message to {member.name}.")
 
 
+# Kick command allows those with kick permissions to kick members who have a lower role in the server
 @bot.command()
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason=None):
@@ -41,5 +43,6 @@ async def kick(ctx, member: discord.Member, *, reason=None):
     print(f'{member.name} has been kicked from the server.')
 
 
+# Loads .env and uses the bot token
 load_dotenv()
 bot.run(os.getenv('TOKEN'))
