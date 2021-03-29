@@ -50,9 +50,9 @@ async def ban(ctx, member: discord.Member, *, reason=None):
     print()
     await member.ban(reason=reason)
     print(f'User {ctx.author} used the ban command on {member.name}.')
-    print(f'Kicking {member.name} from the server...')
-    await ctx.channel.send(f'**{member.name}** has been kicked from the server by **{ctx.author}**.')
-    print(f'{member.name} has been kicked from the server.')
+    print(f'Banning {member.name} from the server...')
+    await ctx.channel.send(f'**{member.name}** has been banned from the server by **{ctx.author}**.')
+    print(f'{member.name} has been banned from the server.')
 
 
 # Loads .env and uses the bot token
