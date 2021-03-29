@@ -43,6 +43,18 @@ async def kick(ctx, member: discord.Member, *, reason=None):
     print(f'{member.name} has been kicked from the server.')
 
 
+# Ban command allows those with ban permissions to ban members who have a lower role in the server
+@bot.command()
+@commands.has_permissions(ban_members=True)
+async def ban(ctx, member: discord.Member, *, reason=None):
+    print()
+    await member.ban(reason=reason)
+    print(f'User {ctx.author} used the ban command on {member.name}.')
+    print(f'Kicking {member.name} from the server...')
+    await ctx.channel.send(f'**{member.name}** has been kicked from the server by **{ctx.author}**.')
+    print(f'{member.name} has been kicked from the server.')
+
+
 # Loads .env and uses the bot token
 load_dotenv()
 bot.run(os.getenv('TOKEN'))
